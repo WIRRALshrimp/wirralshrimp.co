@@ -41,33 +41,50 @@
             <a href="#shop" class="btn">View shrimp</a>
         </section>
 
-        <section id="shop">
+                <section id="shop">
             <h2 class="section-title">THE SHOP: Available shrimp</h2>
-            <p><em>These are sample listings — change the prices and stock to your real shrimp.</em></p>
-            <div 
-<div class="card">
-    <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="card-img">
-    <h3>Cherry Shrimp</h3>
-
+            <p><em>Select your shrimp below to build your reservation request.</em></p>
+            <div class="grid">
+                <!-- Cherry Shrimp Card -->
+                <div class="card">
+                    <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="card-img">
+                    <h3>Cherry Shrimp</h3>
                     <p>Hardy, colourful and great for planted tanks.</p>
                     <strong>£3.00</strong><br>
-                    <a href="#contact" class="btn">Add</a>
-            <div class="card">
-    <img src="IMG_3058.webp" alt="Blue Dream Shrimp" class="card-img">
-    <h3>Blue Dream Shrimp</h3>
-    <p>Striking blue Neocaridina for a colourful colony.</p>
-    <strong>£4.00</strong><br>
-    <a href="#contact" class="btn">Add</a>
-</div>
-
-                    <a href="#contact" class="btn">Add</a>
+                    <button onclick="addToCart('Cherry Shrimp', 3.00)" class="btn">Add to Basket</button>
                 </div>
+
+                <!-- Blue Dream Card -->
+                <div class="card">
+                    <img src="IMG_3058.webp" alt="Blue Dream Shrimp" class="card-img">
+                    <h3>Blue Dream Shrimp</h3>
+                    <p>Striking blue Neocaridina for a colourful colony.</p>
+                    <strong>£4.00</strong><br>
+                    <button onclick="addToCart('Blue Dream Shrimp', 4.00)" class="btn">Add to Basket</button>
+                </div>
+
+                <!-- Yellow Card -->
                 <div class="card">
                     <div style="font-size: 2rem;">🟡</div>
                     <h3>Yellow Shrimp</h3>
                     <p>Bright yellow Neocaridina for planted aquariums.</p>
                     <strong>£4.00</strong><br>
-                    <a href="#contact" class="btn">Add</a>
+                    <button onclick="addToCart('Yellow Shrimp', 4.00)" class="btn">Add to Basket</button>
+                </div>
+            </div>
+
+            <!-- Interactive Basket Display -->
+            <div style="background: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 12px; margin-top: 2rem;">
+                <h3>Your Reservation Basket</h3>
+                <ul id="cart-items" style="list-style: none; padding-left: 0;">
+                    <li><em>Basket is currently empty.</em></li>
+                </ul>
+                <p><strong>Total: £<span id="cart-total">0.00</span></strong></p>
+                <button onclick="clearCart()" style="background: #666;" class="btn">Clear</button>
+                <button onclick="sendOrder()" class="btn">Submit Order via Email</button>
+            </div>
+        </section>
+
                 </div>
             </div>
             <p style="text-align: right;"><strong>Basket: 0 items</strong></p>
