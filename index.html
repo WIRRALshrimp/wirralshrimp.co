@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirral Shrimp Co.</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
+        header { background: #1a1a1a; color: #fff; text-align: center; padding: 2rem 1rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 1.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
+        .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 1rem; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .card-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        .btn { display: inline-block; background: #0070f3; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; margin-top: 0.5rem; text-decoration: none; }
+        .btn:hover { background: #0051a2; }
+        .basket-section { background: #fff; border: 1px solid #ddd; padding: 1.5rem; border-radius: 12px; margin-top: 2rem; }
+        .basket-section ul { list-style: none; padding-left: 0; }
+        .basket-section li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Wirral Shrimp Co.</h1>
+        <p>Local freshwater shrimp located in the Wirral</p>
+    </header>
+
+    <div class="container">
+        <section id="shop">
+            <h2>Available Shrimp</h2>
+            <div class="grid">
+                
+                <!-- Cherry Shrimp Card -->
+                <div class="card">
+                    <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="card-img">
+                    <h3>Cherry Shrimp</h3>
+                    <p>Hardy, colourful and great for planted tanks.</p>
+                    <strong>£3.00</strong><br><br>
+                    <button onclick="addToCart('Cherry Shrimp', 3.00)" class="btn">Add to Basket</button>
+                </div>
+
+                <!-- Blue Dream Card -->
+                <div class="card">
+                    <img src="IMG_3058.webp" alt="Blue Dream Shrimp" class="card-img">
+                    <h3>Blue Dream Shrimp</h3>
+                    <p>Striking blue Neocaridina for a colourful colony.</p>
+                    <strong>£4.00</strong><br><br>
+                    <button onclick="addToCart('Blue Dream Shrimp', 4.00)" class="btn">Add to Basket</button>
+                </div>
+
+                <!-- Yellow Shrimp Card -->
+                <div class="card">
+                    <div style="font-size: 4rem; line-height: 200px;">🟡</div>
+                    <h3>Yellow Shrimp</h3>
+                    <p>Bright yellow Neocaridina for planted aquariums.</p>
+                    <strong>£4.00</strong><br><br>
+                    <button onclick="addToCart('Yellow Shrimp', 4.00)" class="btn">Add to Basket</button>
+                </div>
+
+            </div>
+
+            <!-- Basket Section -->
+            <div class="basket-section">
+                <h3>Your Reservation Basket</h3>
+                <ul id="cart-items">
+                    <li><em>Basket is currently empty.</em></li>
+                </ul>
+                <p><strong>Total: £<span id="cart-total">0.00</span></strong></p>
+                <button onclick="clearCart()" class="btn" style="background: #666;">Clear</button>
+                <button onclick="sendOrder()" class="btn" style="background: #28a745;">Submit Order via Email</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items');
+            const totalSpan = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                list.innerHTML = '<li><em>Basket is currently empty.</em></li>';
+                totalSpan.textContent = '0.00';
+                return;
+            }
+
+            list.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((item) => {
+                total += item.price;
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - £${item.price.toFixed(2)}`;
+                list.appendChild(li);
+            });
+
+            totalSpan.textContent = total.toFixed(2);
+        }
+
+        function sendOrder() {
+            if (cart.length === 0) {
+                alert('Your basket is empty!');
+                return;
+            }
+
+            let orderDetails = cart.map(item => `- ${item.name} (£${item.price.toFixed(2)})`).join('%0A');
+            let total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            
+            let email = 'your-email@example.com'; // Remember to put your email address here!
+            let subject = encodeURIComponent('New Shrimp Order Request');
+            let body = `Hi Wirral Shrimp Co.,%0A%0AI would like to reserve the following shrimp:%0A${orderDetails}%0A%0ATotal: £${total}%0A%0APlease let me know pickup details!`;
+
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
