@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wirral Shrimp Co. | Buy Cherry Shrimp Bundles</title>
+    <meta name="description" content="Local freshwater Cherry Shrimp bundles for sale in the Wirral. Healthy Neocaridina shrimp perfect for planted aquariums.">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #1b4d3e;
+            color: white;
+            border-radius: 8px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        /* Bundle Navigation Menu */
+        .bundle-menu {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            background-color: #e0e0e0;
+            color: #333;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: all 0.2s ease;
+        }
+        .tab-btn:hover {
+            background-color: #d0d0d0;
+        }
+        .tab-btn.active {
+            background-color: #1b4d3e;
+            color: white;
+        }
+
+        /* Product Display Card */
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #eee;
+        }
+        .price {
+            font-size: 1.4em;
+            color: #1b4d3e;
+            font-weight: bold;
+            margin: 10px 0 5px 0;
+        }
+        .shipping-fee {
+            font-size: 0.95em;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        .description {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #1b4d3e;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .btn:hover {
+            background-color: #113329;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Wirral Shrimp Co.</h1>
+        <p>High-quality local freshwater cherry shrimp</p>
+    </header>
+
+    <div class="container">
+        <!-- Bundle Selection Buttons -->
+        <div class="bundle-menu">
+            <button class="tab-btn active" onclick="selectBundle('beginner')">Beginner Pack (5x)</button>
+            <button class="tab-btn" onclick="selectBundle('breeder')">Breeder Colony (10x)</button>
+            <button class="tab-btn" onclick="selectBundle('mega')">Mega Colony (20x)</button>
+        </div>
+
+        <!-- Single Dynamic Product Card -->
+        <div class="product-card">
+            <!-- Add image filenames here when ready -->
+            <img id="bundle-img" src="IMG_3056.webp" alt="Cherry Shrimp Bundle">
+            
+            <h2 id="bundle-title">Beginner Pack (5 Shrimp)</h2>
+            <p class="price" id="bundle-price">£15.00</p>
+            <p class="shipping-fee">+ £1.50 Standard Delivery</p>
+            <p class="description" id="bundle-desc">
+                Ideal starter set to establish your first freshwater colony. Includes 5 healthy juvenile Cherry Shrimp with a balanced mix of males and females.
+            </p>
+
+            <button onclick="buyShrimp()" class="btn">Buy Now</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Wirral Shrimp Co. | Local Delivery</p>
+    </footer>
+
+    <script>
+        // Data for each package option
+        const bundles = {
+            beginner: {
+                title: "Beginner Pack (5 Shrimp)",
+                price: "£15.00",
+                qty: 5,
+                desc: "Ideal starter set to establish your first freshwater colony. Includes 5 healthy juvenile Cherry Shrimp with a balanced mix of males and females.",
+                img: "IMG_3056.webp" // Replace with image for 5 pack
+            },
+            breeder: {
+                title: "Breeder Colony (10 Shrimp)",
+                price: "£30.00",
+                qty: 10,
+                desc: "Best value for fast population growth! Includes 10 high-grade Cherry Shrimp to start breeding a thriving aquarium colony immediately.",
+                img: "IMG_3056.webp" // Replace with image for 10 pack
+            },
+            mega: {
+                title: "Mega Colony (20 Shrimp)",
+                price: "£60.00",
+                qty: 20,
+                desc: "Instant tank filler! Includes 20 lively Cherry Shrimp to instantly add vibrant color and cleaning power to larger planted aquariums.",
+                img: "IMG_3056.webp" // Replace with image for 20 pack
+            }
+        };
+
+        let currentQty = 5;
+
+        function selectBundle(type) {
+            // Update active menu tab styling
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update product card content
+            const pack = bundles[type];
+            document.getElementById('bundle-title').innerText = pack.title;
+            document.getElementById('bundle-price').innerText = pack.price;
+            document.getElementById('bundle-desc').innerText = pack.desc;
+            document.getElementById('bundle-img').src = pack.img;
+            
+            // Set quantity passed to Stripe
+            currentQty = pack.qty;
+        }
+
+        function buyShrimp() {
+            const stripeBaseUrl = "https://buy.stripe.com/8x228r0wh8Y11u70oT3Je00";
+            window.location.href = stripeBaseUrl + "?prefilled_quantity=" + currentQty;
+        }
+    </script>
+
+</body>
+</html>
