@@ -115,10 +115,20 @@
             
             <p>Brighten up your aquarium with lively freshwater shrimp! These colorful little scavengers are peaceful, easy to care for, and spend their days busily grazing on algae to keep your tank clean. Perfect for beginners and experienced hobbyists alike.</p>
             
-            <div class="quantity-box">
-                <label for="quantity">Quantity: </label>
-                <input type="number" id="quantity" value="1" min="1" max="50">
-            </div>
-
-            <button onclick="buyShrimp()" class="btn">Buy Now</button>
-            <div id="error-msg" class="
+            
+    <script>
+        function buyShrimp() {
+            const qty = document.getElementById('quantity').value;
+            // PASTE YOUR STRIPE LINK HERE:
+            const stripeBaseUrl = "https://buy.stripe.com/YOUR_NEW_LINK_HERE";
+            
+            window.location.href = stripeBaseUrl + "?prefilled_quantity=" + qty;
+            <script>
+        function buyShrimp() {
+            const qty = document.getElementById('quantity').value;
+            // PASTE YOUR STRIPE LINK HERE:
+            const stripeBaseUrl = "https://buy.stripe.com/YOUR_NEW_LINK_HERE";
+            
+            window.location.href = stripeBaseUrl + "?prefilled_quantity=" + qty;
+        }
+    </script>
