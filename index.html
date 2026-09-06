@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wirral Shrimp | Freshwater Shrimp & Snails</title>
+  <style>
+    :root {
+      --primary: #1d3557;
+      --secondary: #457b9d;
+      --accent: #e63946;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #2b2d42;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      max-width: 180px;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: var(--secondary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .shipping-notice {
+      display: inline-block;
+      background-color: #e8f4f8;
+      color: var(--secondary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #eee;
+    }
+
+    .product-title {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: var(--text);
+      margin-bottom: 15px;
+    }
+
+    .buy-btn {
+      display: block;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .buy-btn:hover {
+      background-color: var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #888;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="IMG_3174.jpeg" alt="Wirral Shrimp Logo" class="logo">
+    <h1>Wirral Shrimp</h1>
+    <p class="subtitle">Freshwater Shrimp & Aquatic Life • The Wirral</p>
+    <div class="shipping-notice">📦 Standard UK Shipping: £1.50 per order</div>
+  </header>
+
+  <main class="container">
+
+    <!-- Red Cherry Shrimp Options -->
+    <div class="product-card">
+      <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="product-image">
+      <h2 class="product-title">Red "Cherry" Shrimp</h2>
+      <p class="price">£12.00</p>
+      <a href="YOUR_STRIPE_LINK_12" target="_blank" class="buy-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="product-image">
+      <h2 class="product-title">Red "Cherry" Shrimp</h2>
+      <p class="price">£20.00</p>
+      <a href="YOUR_STRIPE_LINK_20" target="_blank" class="buy-btn">Buy Now</a>
+    </div>
+
+    <div class="product-card">
+      <img src="IMG_3056.webp" alt="Red Cherry Shrimp" class="product-image">
+      <h2 class="product-title">Red "Cherry" Shrimp</h2>
+      <p class="price">£30.00</p>
+      <a href="YOUR_STRIPE_LINK_30" target="_blank" class="buy-btn">Buy Now</a>
+    </div>
+
+    <!-- Horned Nerite Snail -->
+    <div class="product-card">
+      <img src="IMG_3179.webp" alt="Horned Nerite Snail" class="product-image">
+      <h2 class="product-title">Horned Nerite Snail</h2>
+      <p class="price">£7.50</p>
+      <a href="https://buy.stripe.com/bJecN51Al6PTgp14F93Je08" target="_blank" class="buy-btn">Buy Now</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; Wirral Shrimp. Chosen for quality.</p>
+  </footer>
+
+</body>
+</html>
